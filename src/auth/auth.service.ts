@@ -12,6 +12,7 @@ export class AuthService {
   public async login(loginDto: LoginDto, userData: Users): Promise<{ accessToken: string }> {
     
     const { password } = loginDto;
+
     const isMatch = await compare(password, userData.password || '')
 
     if(!isMatch) {

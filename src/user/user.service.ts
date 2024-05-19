@@ -43,6 +43,23 @@ export class UserService {
     return user as Users;
   }
 
+  public async findByEmailLogin(email: string): Promise<Users | null> {
+    const user = await this.prismaService.users.findFirst({
+      where: {
+        email: email
+      },
+      select: {
+        id: false,
+        name: true,
+        email: true,
+        password: true,
+        created_at: false,
+        updated_at: false,        
+      }
+    })
+    return user as Users;
+  }
+
   public async findById(id: string): Promise<Users | null> {
     const user = await this.prismaService.users.findFirst({
       where: { id: id },

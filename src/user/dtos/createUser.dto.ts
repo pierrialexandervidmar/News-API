@@ -4,7 +4,7 @@ export class CreateUserDto {
   @IsString()
   name: string;
 
-  @IsString()nest generate module auth && nest generate service auth && nest generate controller auth 
+  @IsString()
   @IsEmail()
   email: string;
   
